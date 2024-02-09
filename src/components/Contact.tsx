@@ -1,106 +1,111 @@
 import { useState } from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import {
-  TextField,
-  Checkbox,
   Button,
-  FormControlLabel,
+  TextField,
+  FormControl,
+  Select,
+  MenuItem,
+  InputLabel,
+  FormHelperText,
+  Grid,
+  Container,
   Typography,
 } from "@mui/material";
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#007bff", 
+    },
+  },
+});
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-    sendCopy: false,
-  });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-      sendCopy: false,
-    });
+
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Subject:", subject);
+    console.log("Message:", message);
+
+    setName("");
+    setEmail("");
+    setSubject("");
+    setMessage("");
   };
 
   return (
-    <div className="text-center m-5">
-      <Typography variant="h5" gutterBottom>
-        Contact us
-      </Typography>
-      <form onSubmit={handleSubmit}>
-        <TextField
-          label="Name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          variant="outlined"
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          type="email"
-          label="Email address"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          variant="outlined"
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Subject"
-          name="subject"
-          value={formData.subject}
-          onChange={handleChange}
-          variant="outlined"
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Message"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          variant="outlined"
-          fullWidth
-          multiline
-          rows={4}
-          margin="normal"
-        />
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={formData.sendCopy}
-              onChange={handleChange}
-              name="sendCopy"
+    <ThemeProvider theme={theme}>
+      <Container maxWidth="md">
+        <Grid container spacing={3} sx={{ mt: 5, mb: 5 }}>
+          <Grid item xs={12}>
+            <Typography variant="h2" align="center" gutterBottom>
+              Contact Us
+            </Typography>            
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              fullWidth
+              sx={{ mb: 2 }}
             />
-          }
-          label="Send me copy"
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          className="bg-dark"
-          fullWidth
-          sx={{ marginTop: "16px" }}
-        >
-          Submit
-        </Button>
-      </form>
-    </div>
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label="Email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              fullWidth
+              sx={{ mb: 2 }}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <FormControl fullWidth sx={{ mb: 2 }} onChange={handleSubmit}>
+              <InputLabel id="subject-label">Subject</InputLabel>
+              <Select
+                labelId="subject-label"
+                value={subject}
+                onChange={(e) => setSubject(e.target.value)}
+              >
+                <MenuItem value="general">General Inquiry</MenuItem>
+                <MenuItem value="service">Inquiry about a Service</MenuItem>
+                <MenuItem value="feedback">Feedback</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label="Message"
+              multiline
+              rows={4}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required
+              fullWidth
+              sx={{ mb: 2 }}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Button variant="contained" className="bg-dark" type="submit" fullWidth>
+              Send Message
+            </Button>
+          </Grid>
+        </Grid>
+      </Container>
+    </ThemeProvider>
   );
 };
 
