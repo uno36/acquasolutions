@@ -29,7 +29,7 @@ const Layout = () => {
               <Nav.Link as={Link} to="/about" className="text-white">
                 About
               </Nav.Link>
-              <Nav.Link as={Link} to="/about" className="text-white">
+              <Nav.Link as={Link} to="/contact" className="text-white">
                 Contact
               </Nav.Link>
             </Nav>

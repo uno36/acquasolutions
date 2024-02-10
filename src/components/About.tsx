@@ -5,6 +5,18 @@ import {
   ListItemText,  
 } from "@mui/material";
 
+import {
+  TiSocialPinterest,
+  TiSocialFacebook,
+  TiSocialTwitter,
+} from "react-icons/ti";
+import { FiDribbble } from "react-icons/fi";
+import { Link } from "react-router-dom";
+
+const message =
+  "Meet the dedicated team behind Aquasolutions, committed to providing innovative solutions for water treatment and borehole installations.";
+
+
 const About = () => {
   return (
     <>
@@ -68,12 +80,143 @@ const About = () => {
           <Grid item xs={12}>
             <p>
               For more information about our services or to discuss your project
-              requirements, please <a href="/contact">contact us</a>.
+              requirements, please <Link to="/contact">contact us</Link>.
             </p>
           </Grid>
         </Grid>
       </div>
-      
+      <section className="section-white">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <h2 className="section-title">The Team Behind Aquasolutions</h2>
+              <p className="section-subtitle">{message}</p>
+            </div>           
+            <div className="col-sm-6 col-md-4">
+              <div className="team-item">
+                <img
+                  src="https://demo.epic-webdesign.com/tf-pacifico/v1/images/team1a.jpg"
+                  className="team-img"
+                  alt="pic"
+                />
+                <h3>Johnathan Hawkins</h3>
+                <div className="team-info">
+                  <p>Head of Water Treatment</p>
+                </div>
+                <p>
+                  With over a decade of experience in water treatment, Johnathan
+                  is passionate about delivering sustainable solutions to ensure
+                  clean and safe water for all.
+                </p>
+                <ul className="team-icon">
+                  <li>
+                    <a href="#" className="twitter" title="Twitter">
+                      <TiSocialTwitter />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="pinterest" title="Pinterest">
+                      <TiSocialPinterest />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="facebook" title="Facebook">
+                      <TiSocialFacebook />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="dribble" title="Dribble">
+                      <FiDribbble />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            {/* Team member 2 */}
+            <div className="col-sm-6 col-md-4">
+              <div className="team-item">
+                <img
+                  src="https://demo.epic-webdesign.com/tf-pacifico/v1/images/team2a.jpg"
+                  className="team-img"
+                  alt="pic"
+                />
+                <h3>Alexandra Smiths</h3>
+                <div className="team-info">
+                  <p>Borehole Installation Specialist</p>
+                </div>
+                <p>
+                  With a background in civil engineering, Alexandra brings
+                  expertise in borehole installations, ensuring reliable access
+                  to groundwater for our clients.
+                </p>
+                <ul className="team-icon">
+                  <li>
+                    <a href="#" className="twitter" title="Twitter">
+                      <TiSocialTwitter />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="pinterest" title="Pinterest">
+                      <TiSocialPinterest />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="facebook" title="Facebook">
+                      <TiSocialFacebook />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="dribble" title="Dribble">
+                      <FiDribbble />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            {/* Team member 3 */}
+            <div className="col-sm-6 col-md-4">
+              <div className="team-item">
+                <img
+                  src="https://demo.epic-webdesign.com/tf-pacifico/v1/images/team3a.jpg"
+                  className="team-img"
+                  alt="pic"
+                />
+                <h3>Elisa Johanson</h3>
+                <div className="team-info">
+                  <p>Marketing Manager</p>
+                </div>
+                <p>
+                  Elisa brings a creative approach to marketing, leveraging
+                  digital strategies to promote Aquasolutions' mission and
+                  services effectively.
+                </p>
+                <ul className="team-icon">
+                  <li>
+                    <a href="#" className="twitter" title="Twitter">
+                      <TiSocialTwitter />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="pinterest" title="Pinterest">
+                      <TiSocialPinterest />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="facebook" title="Facebook">
+                      <TiSocialFacebook />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="dribble" title="Dribble">
+                      <FiDribbble />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 };
