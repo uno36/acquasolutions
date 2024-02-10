@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -13,23 +13,23 @@ const Layout = () => {
     <div>
       <Navbar expand="lg" className="bg-dark ">
         <Container fluid>
-          <Navbar.Brand href="#" className="text-white">
+          <Navbar.Brand as={Link} to="/" className="text-white">
             ACQUASOLUTIONS
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" className='bg-white' />
+          <Navbar.Toggle aria-controls="navbarScroll" className="bg-white" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
               className="me-auto my-2 my-lg-0"
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/" className="text-white">
+              <Nav.Link as={Link} to="/" className="text-white">
                 Home
               </Nav.Link>
-              <Nav.Link href="about" className="text-white">
+              <Nav.Link as={Link} to="/about" className="text-white">
                 About
               </Nav.Link>
-              <Nav.Link href="contact" className="text-white">
+              <Nav.Link as={Link} to="/about" className="text-white">
                 Contact
               </Nav.Link>
             </Nav>
