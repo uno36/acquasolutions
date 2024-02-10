@@ -26,10 +26,10 @@ const Layout = () => {
               <Nav.Link href="/" className="text-white">
                 Home
               </Nav.Link>
-              <Nav.Link href="/about" className="text-white">
+              <Nav.Link href="about" className="text-white">
                 About
               </Nav.Link>
-              <Nav.Link href="/contact" className="text-white">
+              <Nav.Link href="contact" className="text-white">
                 Contact
               </Nav.Link>
             </Nav>
